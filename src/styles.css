@@ -1,0 +1,9 @@
+/* Add application styles & imports to this file! */
+
+body {
+  margin: 0px;
+}
+
+.mat-app-background {
+  padding: 20px;
+}

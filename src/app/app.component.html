@@ -1,0 +1,40 @@
+<hello name="{{ name }}"></hello>
+
+<!-- Option 1 MTX extensions select autocomplete component
+<div fxLayout="column" fxLayoutAlign="end start">
+  <form [formGroup]="materoForm">
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Example Input</mat-label>
+      <input matInput type="text" formControlName="example1" />
+      <mat-error> field required </mat-error>
+    </mat-form-field>
+  </form>
+</div> -->
+Option 2 HTML input native list
+<div
+  fxLayout="column"
+  fxLayoutAlign="end start"
+  *ngIf="randomAccountNumbers.length > 1"
+>
+  <form [formGroup]="htmlForm">
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Example Input</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="example2"
+        list="random-account-numbers"
+        autocomplete="off"
+      />
+      <datalist id="random-account-numbers">
+        <option *ngFor="let item of randomAccountNumbers; index as i">
+          {{ item }}
+        </option>
+      </datalist>
+      <mat-error> field required </mat-error>
+      <mat-error *ngIf="exampleControl2.hasError('selectedAccountNoExist')">
+        field required
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
